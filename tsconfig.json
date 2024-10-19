@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "lib": ["dom", "ESNext"],
+        "baseUrl": ".",
+        "paths": {
+            "src/*": ["src/*"]
+        }
+    }
+}
