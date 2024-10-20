@@ -37,17 +37,18 @@ class TaskQueue<T> {
 
     processAllTasks(): void {
         console.log("Se estan procesando las tareas...")
-        this.tasks.forEach((task) => {
-            this.processTask(task)        
-        })
-        this.id = 1;
+        while (this.tasks.length > 0) {
+            const task = this.tasks.shift();
+            if (task) {
+                this.processTask(task);
+            }
+        }
         console.log("Se han procesado todas las tareas :)")
     }
 
     private processTask(task: Task<T>): void {
         const processor = this.proccesors[task.type] || this.proccesors.default;
         processor(task);
-        this.tasks = this.tasks.filter((t) => t.id != task.id)
     }
 
     getAllTasks(): Task<T>[] {

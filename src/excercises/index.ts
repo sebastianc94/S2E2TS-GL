@@ -1,1 +1,1 @@
-export { default as queueManager } from "./queue-manager";
+export { default as queueManager } from "./controllerTasks";
